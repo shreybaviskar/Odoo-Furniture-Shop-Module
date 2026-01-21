@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_product_template_form_furniture_inherit" model="ir.ui.view">
+            <field name="name">product.template.form.furniture.inherit</field>
+            <field name="model">product.template</field>
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']" position="inside">
+                    <span class="d-inline-block">
+                        <field name="is_furniture"/>
+                        <label for="is_furniture"/>
+                    </span>
+                </xpath>
+
+                <xpath expr="//field[@name='categ_id']" position="after">
+                    <field name="furniture_category" invisible="not is_furniture"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_furniture_product" model="ir.actions.act_window">
+            <field name="name">Furniture Products</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_furniture', '=', True)]</field>
+            <field name="context">{
+                'default_is_furniture': True,
+                'default_purchase_ok': True,
+                'default_sale_ok': True,
+                'default_detailed_type': 'consu'
+            }</field>
+        </record>
+    </data>
+</odoo>

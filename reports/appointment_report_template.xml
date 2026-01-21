@@ -1,0 +1,24 @@
+<odoo>
+    <template id="report_appointment_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Appointment: <span t-field="o.name"/></h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <strong>Customer:</strong> <span t-field="o.customer_id.name"/><br/>
+                                <strong>Date:</strong> <span t-field="o.date"/><br/>
+                            </div>
+                            <div class="col-6">
+                                <strong>Status:</strong> <span t-field="o.state"/>
+                            </div>
+                        </div>
+                        <br/>
+                        <p><strong>Notes:</strong> <span t-field="o.note"/></p>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

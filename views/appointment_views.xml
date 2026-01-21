@@ -1,0 +1,63 @@
+<odoo>
+
+    <record id="view_furniture_appointment_tree" model="ir.ui.view">
+        <field name="name">furniture.appointment.tree</field>
+        <field name="model">furniture.appointment</field>
+        <field name="arch" type="xml">
+            <tree string="Appointments">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="date" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_furniture_appointment_form" model="ir.ui.view">
+        <field name="name">furniture.appointment.form</field>
+        <field name="model">furniture.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm" type="object" string="Confirm"
+                            invisible="state != 'draft'" class="oe_highlight"/>
+                    <button name="action_ongoing" type="object" string="Ongoing"
+                            invisible="state != 'confirmed'" class="oe_highlight"/>
+                    <button name="action_done" type="object" string="Done"
+                            invisible="state != 'ongoing'" class="oe_highlight"/>
+                    <button name="action_cancel" type="object" string="Cancel" invisible="state == 'done'"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,ongoing,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1><field name="name"/></h1>
+                    </div>
+                    <group>
+                    <group>
+                        <field name="customer_id"/>
+                        <field name="email"/>
+                    </group>
+                    <group>
+                        <field name="date"/>
+                        <field name="phone"/>
+                    </group>
+                    </group>
+                    <notebook>
+                        <page string="Notes">
+                            <field name="note"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_furniture_appointment" model="ir.actions.act_window">
+        <field name="name">Appointments</field>
+        <field name="res_model">furniture.appointment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

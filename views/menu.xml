@@ -1,0 +1,21 @@
+<odoo>
+    <menuitem id="menu_furniture_root" name="Furniture Shop" sequence="10"/>
+
+    <menuitem id="menu_furniture_products" name="Products"
+              parent="menu_furniture_root" action="action_furniture_product" sequence="10"/>
+
+    <menuitem id="menu_furniture_appointments" name="Appointments"
+              parent="menu_furniture_root" action="action_furniture_appointment" sequence="20"/>
+
+    <menuitem id="menu_furniture_sales_root" name="Sales" parent="menu_furniture_root" sequence="30"/>
+
+    <menuitem id="menu_furniture_quotations" name="Quotations"
+              parent="menu_furniture_sales_root" action="sale.action_quotations_with_onboarding" sequence="10"/>
+
+    <menuitem id="menu_furniture_customers" name="Customers"
+              parent="menu_furniture_sales_root" action="base.action_partner_form" sequence="20"/>
+
+    <menuitem id="menu_furniture_purchase" name="Purchase"
+              parent="menu_furniture_root"
+              action="purchase.purchase_form_action" sequence="40"/>
+</odoo>
