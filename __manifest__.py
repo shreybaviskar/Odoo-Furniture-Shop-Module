@@ -10,6 +10,7 @@
         'sale_management'
     ],
     'data': [
+        'security/furniture_security.xml',
         'security/ir.model.access.csv',
         'data/sequence.xml',
         'views/furniture_product_views.xml',

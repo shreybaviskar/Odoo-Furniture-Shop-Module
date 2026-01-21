@@ -1,2 +1,13 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_furniture_appointment,furniture.appointment,model_furniture_appointment,base.group_user,1,1,1,1
+access_prod_sales_ro,prod_sales_ro,product.model_product_template,group_furniture_salesperson,1,0,0,0
+access_apt_sales_ro,apt_sales_ro,model_furniture_appointment,group_furniture_salesperson,1,0,0,0
+access_sale_sales_ce,sale_sales_ce,sale.model_sale_order,group_furniture_salesperson,1,1,1,0
+access_cust_sales_ce,cust_sales_ce,base.model_res_partner,group_furniture_salesperson,1,1,1,0
+access_apt_mgr,apt_mgr,model_furniture_appointment,group_furniture_manager,1,1,1,1
+access_sale_mgr,sale_manager,sale.model_sale_order,group_furniture_manager,1,1,1,0
+access_pur_mgr,pur_manager,purchase.model_purchase_order,group_furniture_manager,1,1,1,0
+access_prod_mgr,prod_manager,product.model_product_template,group_furniture_manager,1,1,1,1
+access_apt_own,apt_own,model_furniture_appointment,group_furniture_owner,1,1,1,1
+access_prod_own,prod_own,product.model_product_template,group_furniture_owner,1,1,1,1
+access_sale_own,sale_own,sale.model_sale_order,group_furniture_owner,1,1,1,1
+access_pur_own,pur_own,purchase.model_purchase_order,group_furniture_owner,1,1,1,1
